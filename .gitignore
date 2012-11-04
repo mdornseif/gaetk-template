@@ -1,0 +1,3 @@
+lib/google_appengine/
+*.pyc
+*~

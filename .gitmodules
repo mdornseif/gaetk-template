@@ -1,0 +1,6 @@
+[submodule "lib/huTools-chackout"]
+	path = lib/huTools-chackout
+	url = git@github.com:hudora/huTools.git
+[submodule "lib/appengine-toolkit"]
+	path = lib/appengine-toolkit
+	url = git@github.com:hudora/appengine-toolkit.git

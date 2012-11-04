@@ -1,0 +1,25 @@
+{% extends "newblog/base.html" %}
+
+        {% block sidebarcontet %}
+        <a href="_new"><i class="icon-edit"></i></a>
+        <ul class="nav nav-list">
+          <li class="nav-header">Daheim und Unterwegs</li>
+          {% for posting in postings %}
+          <li><a href="{{ posting.url }}">{{ posting.title }}</a></li>
+          {% endfor %}
+        </ul>
+        {% endblock sidebarcontet %}
+
+      {% block maincontent %}
+      {% for posting in postings %}
+      <div class="postingcontainer well" id="{{ posting.id }}">
+        <a href="{{ posting.url }}"><h2>{{ posting.title }}
+          {% if is_admin %}<a href="{{ posting.url }}/_edit"><i class="icon-edit"></i></a>{% endif %}</h2></a>
+        <div class="markdown"><code>{{posting.body|e}}</code></div>
+      </div>
+      {% endfor %}
+
+      <div>
+          <img src="http://chart.apis.google.com/chart?cht=map:fixed=-70,-180,80,180&chs=450x300&chf=bg,s,336699&chco=d0d0d0,cc0000&chd=s:999999999999999999999999999&chld=AT|BE|DK|DE|GR|IE|IT|LI|LU|NL|PL|CZ|ES|SE|CH|GB|FR|AW|CA|VE|US|CN|JP|JO|TW|TH|AE" width="450" height="300" ><br/>visited 27 states (12%)<br/><a href="http://douweosinga.com/projects/visited?region=world">Create your own visited map of The World</a>.
+      </div>
+      {% endblock maincontent %}

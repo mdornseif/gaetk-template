@@ -1,0 +1,48 @@
+application: %APPNAME%
+version: dev
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+builtins:
+- remote_api: off
+- appstats: on
+- deferred: on
+
+handlers:
+- url: /(favicon\.ico|robots\.txt)
+  static_files: static/\1
+  upload: static/(.*)
+  expiration: '1d'
+- url: /gaetk/static
+  static_dir: lib/appengine-toolkit/static
+- url: /static
+  static_dir: static
+
+- url: /.*
+  script: modules.sample.s_views.application
+
+libraries:
+- name: jinja2
+  version: "2.6"
+- name: setuptools
+  version: "0.6c11"
+- name: markupsafe
+  version: "0.15"
+- name: lxml
+  version: "2.3"
+
+skip_files:
+- ^(.*/)?app\.yaml
+- ^(.*/)?index\.yaml
+- ^(.*/)?.*~
+- ^(.*/)?.*\.py[co]
+- ^(.*/)?\..*
+- ^(.*/)?(CHANGES|LICENSE|AUTHORS)
+- ^(.*/)?Makefile
+- ^(.*/)?setup.py
+- ^.*/.*/(doc|example|test|bin|tmp)s?/.*
+- ^(example|test|bin|tmp)s?/.*
+- ^.*/README.*
+- ^(.*/)?lib/google_appengine/.*
+- ^(.*/)?lib/jQuery-File-Upload/server/.*
