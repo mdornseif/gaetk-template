@@ -15,7 +15,7 @@ How to include libraries from Github
 ------------------------------------
 
 
-    git submodule add ghttps://github.com/sixohsix/twitter.git lib/twitter-toolkit
+    git submodule add https://github.com/sixohsix/twitter.git lib/twitter-toolkit
     echo "./twitter-toolkit" >> lib/submodules.pth
 
 Note: Submodule Directories should not be named like the library itself. It is
